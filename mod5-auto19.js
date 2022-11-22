@@ -23,7 +23,10 @@ class User {
 
 class Admin extends User {
   // Change code below this line
-
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
   static AccessLevel = {
     BASIC: "basic",
     SUPERUSER: "superuser",
@@ -34,11 +37,7 @@ class Admin extends User {
 
 const mango = new Admin({
   email: "mango@mail.com",
-    accessLevel: Admin.AccessLevel.SUPERUSER,
-  
-    constructor(email, accessLevel) {
-    this.accessLevel = accessLevel
-    }
+  accessLevel: Admin.AccessLevel.SUPERUSER,
 });
 
 console.log(mango.email); // "mango@mail.com"
