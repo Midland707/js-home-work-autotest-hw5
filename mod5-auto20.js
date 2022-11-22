@@ -1,7 +1,6 @@
 //MODUL5 AUTOTEST20
 
 // Додай класу Admin наступні властивості і методи.
-
 // Публічну властивість blacklistedEmails для зберігання чорного списку поштових адрес користувачів.
 // Значення за замовчуванням — це порожній масив.
 // Публічний метод blacklist(email) для додавання пошти у чорний список.
@@ -33,11 +32,19 @@ class Admin extends User {
     SUPERUSER: "superuser",
   };
 
-  constructor({ email, accessLevel }) {
+  constructor({ email, accessLevel, blacklistedEmails }) {
+    //   constructor({ email, accessLevel }) {
     super(email);
     this.accessLevel = accessLevel;
+    this.blacklistedEmails = [];
   }
 
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
   // Change code above this line
 }
 
